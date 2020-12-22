@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Flow - Mobile Player View.png-6c737708a27b91d24ad558e7c09e1d5b.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Imgs/mockups/Flow - Mobile Player View.png"
+dest_files=[ "res://.import/Flow - Mobile Player View.png-6c737708a27b91d24ad558e7c09e1d5b.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Imgs/icons/book_03_t.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Elements/GameInfoBlock.gd" type="Script" id=2]
+
+[node name="GameInfoBlock" type="HBoxContainer"]
+margin_right = 554.0
+margin_bottom = 200.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 554.0
+margin_bottom = 232.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 547.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 540, 200 )
+custom_constants/separation = 10
+
+[node name="Continue" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 540.0
+margin_bottom = 14.0
+text = "Continue Game"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 540.0
+margin_bottom = 28.0
+
+[node name="InfoBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 540.0
+margin_bottom = 218.0
+custom_constants/separation = 20
+
+[node name="GameIcon" type="TextureRect" parent="PanelContainer/VBoxContainer/InfoBox"]
+margin_right = 180.0
+margin_bottom = 180.0
+grow_vertical = 2
+rect_min_size = Vector2( 180, 180 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/InfoBox"]
+margin_left = 200.0
+margin_right = 274.0
+margin_bottom = 180.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/InfoBox/VBox"]
+margin_top = 66.0
+margin_right = 74.0
+margin_bottom = 80.0
+text = "Game Title"
+
+[node name="Date" type="Label" parent="PanelContainer/VBoxContainer/InfoBox/VBox"]
+margin_top = 100.0
+margin_right = 74.0
+margin_bottom = 114.0
+text = "01/20/2021"
+[connection signal="gui_input" from="." to="." method="_on_GameInfoBlock_gui_input"]

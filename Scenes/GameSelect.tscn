@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/Bold48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Bold20.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/GameSelect.gd" type="Script" id=4]
+
+[node name="GameSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 10.0
+margin_right = 590.0
+margin_bottom = 1024.0
+rect_min_size = Vector2( 580, 0 )
+custom_constants/separation = 20
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 97.0
+margin_right = 580.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 3 )
+text = "Last Time on..."
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 580.0
+margin_bottom = 195.0
+custom_fonts/font = ExtResource( 2 )
+text = "Game Title"
+
+[node name="About" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 215.0
+margin_right = 580.0
+margin_bottom = 795.0
+rect_min_size = Vector2( 0, 580 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/About"]
+margin_right = 580.0
+rect_min_size = Vector2( 580, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+margin_top = 815.0
+margin_right = 580.0
+margin_bottom = 819.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 839.0
+margin_right = 580.0
+margin_bottom = 999.0
+rect_min_size = Vector2( 0, 160 )
+custom_fonts/font = ExtResource( 2 )
+text = "Join Game"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 1019.0
+margin_right = 580.0
+margin_bottom = 1024.0
+rect_min_size = Vector2( 0, 5 )
