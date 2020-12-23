@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/arm_b_05.PNG-4a3264a5f32675d92de0b75bc35f5943.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Imgs/assets/weaponandarmoriconpack_windows/weaponandarmoriconpack/WeaponAndArmorIcons_png/black/armor/arm_b_05.PNG"
+dest_files=[ "res://.import/arm_b_05.PNG-4a3264a5f32675d92de0b75bc35f5943.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
