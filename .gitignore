@@ -1,6 +1,9 @@
 
 # Godot-specific ignores
 .import/
+bin/
+git_api.gdnlib
+git_api.gdns
 export.cfg
 export_presets.cfg
 
