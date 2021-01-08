@@ -1,0 +1,236 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/InGame/Character.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Elements/SmallSquareSelectButton_v2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/Bold48.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/Bold14.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Imgs/Theme/scalable/emotes/emote-love-symbolic.svg" type="Texture" id=5]
+[ext_resource path="res://Scenes/Elements/SmallSquareSelectButton.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hide"
+length = 0.26
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 800, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Show"
+length = 0.27
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="Character" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 12.0
+margin_bottom = -27.0
+custom_constants/separation = 40
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 612.0
+
+[node name="Name" type="Label" parent="."]
+margin_top = 40.0
+margin_right = 612.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 3 )
+text = "Character Name"
+
+[node name="HPBar" type="HBoxContainer" parent="."]
+margin_top = 135.0
+margin_right = 612.0
+margin_bottom = 175.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HPBar"]
+margin_left = 24.0
+margin_right = 64.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HPBar/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -5.0
+custom_fonts/font = ExtResource( 4 )
+text = "HP:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="HPBar"]
+margin_left = 68.0
+margin_right = 588.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 520, 40 )
+max_value = 25.0
+step = 1.0
+value = 15.0
+percent_visible = false
+
+[node name="Label" type="Label" parent="HPBar/ProgressBar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.4543
+margin_top = -10.5
+margin_right = 61.4543
+margin_bottom = 10.5
+text = "15/25"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickStats" type="HBoxContainer" parent="."]
+margin_top = 215.0
+margin_right = 612.0
+margin_bottom = 422.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Armor" parent="QuickStats" instance=ExtResource( 6 )]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 207.0
+icon = "res://Imgs/assets/weaponandarmoriconpack_windows/weaponandarmoriconpack/WeaponAndArmorIcons_png/transparent/armor/arm_t_09.PNG"
+show_icon = false
+info = "15"
+show_info = true
+
+[node name="Init" parent="QuickStats" instance=ExtResource( 6 )]
+margin_left = 326.0
+margin_right = 506.0
+margin_bottom = 207.0
+show_icon = false
+info = "5"
+show_info = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 462.0
+margin_right = 612.0
+margin_bottom = 912.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 450 )
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 419.0
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 600.0
+margin_bottom = 419.0
+rect_min_size = Vector2( 600, 0 )
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 10.0
+margin_right = 590.0
+margin_bottom = 400.0
+custom_constants/vseparation = 40
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Stats" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_right = 180.0
+margin_bottom = 180.0
+icon = "res://Imgs/assets/scrollsandbooksicons/ScrollsAndBooks_t/ScrollsAndBooks_35_t.PNG"
+
+[node name="Weapons" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 200.0
+margin_right = 380.0
+margin_bottom = 180.0
+icon = "res://Imgs/assets/rpgweaponsicons_windows/rpgweaponsicons/WeaponsIcons_png/transparent/swords/sv_t_02.png"
+
+[node name="Spells" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_right = 580.0
+margin_bottom = 180.0
+icon = "res://Imgs/assets/scrollsandbooksicons/ScrollsAndBooks_t/ScrollsAndBooks_24_t.PNG"
+
+[node name="Abilities" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 220.0
+margin_right = 180.0
+margin_bottom = 400.0
+icon = "res://Imgs/assets/skilliconpack/emerald/emerald_06.PNG"
+
+[node name="Items" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 200.0
+margin_top = 220.0
+margin_right = 380.0
+margin_bottom = 400.0
+icon = "res://Imgs/assets/tradingicons/TradingIcons_t/TradingIcons_20_t.PNG"
+
+[node name="Bio" parent="ScrollContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_top = 220.0
+margin_right = 580.0
+margin_bottom = 400.0
+icon = "res://Imgs/assets/scrollsandbooksicons/ScrollsAndBooks_t/ScrollsAndBooks_33_t.PNG"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 2 )
+anims/Show = SubResource( 1 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -16,8 +16,8 @@ func _ready():
 func _process(delta):
 	var parent_width = get_parent().rect_size.x 
 	var current_width = $VBoxContainer.rect_size.x 
-	if parent_width != current_width + 10:
-		$VBoxContainer.rect_min_size.x = parent_width - 10
+	if parent_width != current_width :
+		$VBoxContainer.rect_min_size.x = parent_width
 #	pass
 
 func list_characters():
@@ -32,5 +32,5 @@ func list_characters():
 		index += 1
 		
 func on_clicked(opts):
-	print(opts)
+	#print(opts)
 	get_parent().get_parent().character_select(opts)

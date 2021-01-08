@@ -1,133 +1,278 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://Scenes/Character.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Elements/LargeSquareSelectButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fonts/Bold48.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Fonts/Bold20.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/Bold14.tres" type="DynamicFont" id=4]
 [ext_resource path="res://default_theme.tres" type="Theme" id=5]
-[ext_resource path="res://Scenes/Elements/SmallSquareSelectButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Elements/CircleIndicator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Imgs/mockups/Character Status Window (Mobile).jpg" type="Texture" id=7]
+[ext_resource path="res://Imgs/Theme/scalable/emotes/emote-love-symbolic.svg" type="Texture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=1]
 
 [node name="Character" type="ScrollContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = false
 theme = ExtResource( 5 )
+custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 587.0
-margin_bottom = 1062.0
+margin_right = 564.0
+margin_bottom = 1119.0
 rect_min_size = Vector2( 500, 1024 )
 custom_constants/separation = 40
 
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 564.0
+
 [node name="Name" type="Label" parent="VBoxContainer"]
-margin_right = 587.0
-margin_bottom = 55.0
+margin_top = 40.0
+margin_right = 564.0
+margin_bottom = 95.0
 custom_fonts/font = ExtResource( 3 )
 text = "Character Name"
 autowrap = true
 
 [node name="HPbar" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 95.0
-margin_right = 587.0
-margin_bottom = 118.0
+margin_top = 135.0
+margin_right = 564.0
+margin_bottom = 175.0
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HPbar"]
-margin_right = 33.0
-margin_bottom = 23.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HPbar"]
+show_behind_parent = true
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HPbar/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.5
+margin_top = -11.5
+margin_right = 16.5
+margin_bottom = 11.5
 custom_fonts/font = ExtResource( 4 )
 text = "HP:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HPbar"]
-margin_left = 37.0
-margin_right = 587.0
-margin_bottom = 23.0
-rect_min_size = Vector2( 550, 23 )
+margin_left = 44.0
+margin_right = 564.0
+margin_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 520, 38 )
 value = 98.0
 
 [node name="ACandInt" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 158.0
-margin_right = 587.0
-margin_bottom = 425.0
+margin_top = 215.0
+margin_right = 564.0
+margin_bottom = 482.0
 custom_constants/separation = 60
 alignment = 1
 
 [node name="AC" parent="VBoxContainer/ACandInt" instance=ExtResource( 2 )]
-margin_left = 13.0
-margin_right = 263.0
+margin_left = 2.0
+margin_right = 252.0
 title = "Armor Class"
+icon = "res://Imgs/assets/armoriconpack_windows/armoriconpack/transparent/armor/armor_20.PNG"
+icon_opacity = 0.4
+info = "15"
+show_info = true
+background = false
 
 [node name="Int" parent="VBoxContainer/ACandInt" instance=ExtResource( 2 )]
-margin_left = 323.0
-margin_right = 573.0
+margin_left = 312.0
+margin_right = 562.0
 title = "Initiative"
+icon = "res://Imgs/assets/armoriconpack_windows/armoriconpack/transparent/addons/145_t.PNG"
+icon_opacity = 0.4
+info = "5"
+show_info = true
+background = false
 
 [node name="Movement" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 465.0
-margin_right = 587.0
-margin_bottom = 732.0
+margin_top = 522.0
+margin_right = 564.0
+margin_bottom = 789.0
 custom_constants/separation = 60
 alignment = 1
 
 [node name="MVSPEED" parent="VBoxContainer/Movement" instance=ExtResource( 2 )]
-margin_left = 168.0
-margin_right = 418.0
-title = "Movement Speed"
+margin_left = 157.0
+margin_right = 407.0
+title = "Speed"
+show_icon = false
+info = "30"
+show_info = true
 
 [node name="Buffs" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 772.0
-margin_right = 587.0
-margin_bottom = 897.0
+margin_top = 829.0
+margin_right = 564.0
+margin_bottom = 934.0
+custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer/Buffs"]
-margin_right = 587.0
+margin_right = 564.0
 margin_bottom = 21.0
 text = "Buffs"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Buffs"]
-margin_top = 25.0
-margin_right = 587.0
-margin_bottom = 125.0
+margin_top = 41.0
+margin_right = 564.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 0, 64 )
+custom_constants/separation = 20
 
-[node name="LSSB" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
-margin_bottom = 100.0
+[node name="CircleIndicator" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 64.0
 
-[node name="LSSB2" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
+[node name="CircleIndicator3" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
+margin_right = 148.0
+margin_bottom = 64.0
 
-[node name="LSSB3" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
+[node name="CircleIndicator4" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_right = 232.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator5" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 252.0
+margin_right = 316.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator6" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_right = 400.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator2" parent="VBoxContainer/Buffs/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 420.0
+margin_right = 484.0
+margin_bottom = 64.0
 
 [node name="Ailments" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 937.0
-margin_right = 587.0
-margin_bottom = 1062.0
+margin_top = 974.0
+margin_right = 564.0
+margin_bottom = 1079.0
+custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer/Ailments"]
-margin_right = 587.0
+margin_right = 564.0
 margin_bottom = 21.0
 text = "Ailments"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Ailments"]
-margin_top = 25.0
-margin_right = 587.0
-margin_bottom = 125.0
+margin_top = 41.0
+margin_right = 564.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 64, 0 )
+custom_constants/separation = 20
 
-[node name="LSSB" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
-margin_bottom = 100.0
+[node name="CircleIndicator" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 64.0
 
-[node name="LSSB2" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
+[node name="CircleIndicator2" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
+margin_right = 148.0
+margin_bottom = 64.0
 
-[node name="LSSB3" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
+[node name="CircleIndicator4" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_right = 232.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator6" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 252.0
+margin_right = 316.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator5" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_right = 400.0
+margin_bottom = 64.0
+
+[node name="CircleIndicator3" parent="VBoxContainer/Ailments/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 420.0
+margin_right = 484.0
+margin_bottom = 64.0
+
+[node name="buffer" type="Control" parent="VBoxContainer"]
+margin_top = 1119.0
+margin_right = 564.0
+margin_bottom = 1119.0
+
+[node name="Character Status Window (Mobile)" type="Sprite" parent="."]
+position = Vector2( -1755.43, 1602.52 )
+rotation = 1.5708
+texture = ExtResource( 7 )

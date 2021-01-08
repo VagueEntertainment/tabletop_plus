@@ -14,3 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Join_pressed():
+	Globals.emit_signal("game_start","test")
+	pass # Replace with function body.

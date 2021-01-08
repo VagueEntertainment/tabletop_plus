@@ -8,6 +8,7 @@ extends ScrollContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$VBoxContainer/GameInfoBlock.connect("select_game",self,"_on_game_select")
 	pass # Replace with function body.
 
 
@@ -18,3 +19,7 @@ func _process(delta):
 	if parent_width != current_width + 10:
 		$VBoxContainer.rect_min_size.x = parent_width - 10
 #	pass
+
+func _on_game_select(data):
+	Globals.emit_signal("game_select",data)
+	pass

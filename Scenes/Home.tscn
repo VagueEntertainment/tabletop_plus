@@ -8,6 +8,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -15,8 +16,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 554.0
-margin_bottom = 866.0
+margin_bottom = 906.0
 custom_constants/separation = 20
+alignment = 1
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 margin_right = 554.0
@@ -27,10 +29,16 @@ rect_min_size = Vector2( 0, 20 )
 margin_top = 40.0
 margin_bottom = 272.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer"]
 margin_top = 292.0
 margin_right = 554.0
-margin_bottom = 866.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 332.0
+margin_right = 554.0
+margin_bottom = 906.0
 alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
@@ -67,6 +75,7 @@ margin_right = 540.0
 margin_bottom = 574.0
 title = "Friends"
 icon = "res://Imgs/icons/group.png"
+[connection signal="visibility_changed" from="." to="." method="_on_Home_visibility_changed"]
 [connection signal="select_game" from="VBoxContainer/GameInfoBlock" to="." method="_on_GameInfoBlock_select_game"]
 [connection signal="clicked" from="VBoxContainer/HBoxContainer/GridContainer/Characters" to="." method="_on_Characters_clicked"]
 [connection signal="clicked" from="VBoxContainer/HBoxContainer/GridContainer/Games" to="." method="_on_Games_clicked"]

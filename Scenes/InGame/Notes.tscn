@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Bold48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/InGame/Elements/Note.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Imgs/Theme/scalable/actions/document-new-symbolic.svg" type="Texture" id=3]
+[ext_resource path="res://Scenes/InGame/Notes.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hide"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 800, 0 ), Vector2( 800, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Show"
+length = 0.27
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[node name="Notes" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 600.0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 20.0
+margin_right = 600.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 1 )
+text = " Notes"
+
+[node name="Add" type="TextureButton" parent="Label"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -60.0135
+margin_top = -24.0
+margin_right = -12.0135
+margin_bottom = 24.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_top = 95.0
+margin_right = 600.0
+margin_bottom = 99.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 119.0
+margin_right = 600.0
+margin_bottom = 969.0
+grow_horizontal = 2
+rect_min_size = Vector2( 0, 850 )
+scroll_horizontal_enabled = false
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 600, 0 )
+custom_constants/separation = 30
+
+[node name="Note" parent="ScrollContainer/VBox" instance=ExtResource( 2 )]
+title = "Guild Thanatos"
+note = "They the bad guys, and man are they bad."
+date = "12/04/2020"
+
+[node name="Note2" parent="ScrollContainer/VBox" instance=ExtResource( 2 )]
+margin_top = 154.0
+margin_bottom = 278.0
+title = "Lost Lilipup"
+note = "There is a poor lost Lilipup."
+date = "12/06/2020"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 2 )
+anims/Show = SubResource( 1 )
+[connection signal="pressed" from="Label/Add" to="." method="_on_Add_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

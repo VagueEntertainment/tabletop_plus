@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Imgs/Theme/scalable/actions/go-previous-symbolic.svg" type="Texture" id=2]
 [ext_resource path="res://Imgs/Theme/scalable/status/avatar-default-symbolic.svg" type="Texture" id=3]
+[ext_resource path="res://Fonts/Bold32.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
 
 [node name="Main" type="Control"]
@@ -70,7 +71,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="TopBar"]
+[node name="Title" type="Label" parent="TopBar"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,17 +82,21 @@ margin_right = 20.0
 margin_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+custom_fonts/font = ExtResource( 4 )
 text = "Navigation"
 align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MainArea" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 64.0
-margin_bottom = -2.0
+margin_top = 61.0
 rect_clip_content = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 [connection signal="gui_input" from="TopBar/NavButton1" to="." method="_on_NavButton1_gui_input"]

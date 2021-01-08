@@ -1,8 +1,84 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/InGame.gd" type="Script" id=1]
+[ext_resource path="res://Imgs/mockups/Mobile-Player-GameTabsComparison.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/InGame/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/InGame/Notes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://default_theme.tres" type="Theme" id=5]
+[ext_resource path="res://Scenes/InGame/Map.tscn" type="PackedScene" id=6]
 
 [node name="InGame" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Mobile-Player-GameTabsComparison" type="Sprite" parent="."]
+position = Vector2( -1042.44, 1187.5 )
+texture = ExtResource( 2 )
+
+[node name="WaterMark" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Control" parent="VBox"]
+margin_top = 4.0
+margin_right = 600.0
+margin_bottom = 968.0
+rect_min_size = Vector2( 0, 964 )
+rect_clip_content = true
+
+[node name="Character" parent="VBox/Container" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Notes" parent="VBox/Container" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Map" parent="VBox/Container" instance=ExtResource( 6 )]
+
+[node name="Nav" type="HBoxContainer" parent="VBox"]
+margin_top = 972.0
+margin_right = 600.0
+margin_bottom = 1020.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 48 )
+alignment = 1
+
+[node name="Map" type="Button" parent="VBox/Nav"]
+margin_left = 173.0
+margin_right = 226.0
+margin_bottom = 48.0
+text = "MAP"
+
+[node name="Notes" type="Button" parent="VBox/Nav"]
+margin_left = 230.0
+margin_right = 302.0
+margin_bottom = 48.0
+text = "NOTES"
+
+[node name="Character" type="Button" parent="VBox/Nav"]
+margin_left = 306.0
+margin_right = 427.0
+margin_bottom = 48.0
+text = "CHARACTER"
+[connection signal="visibility_changed" from="." to="." method="_on_InGame_visibility_changed"]
+[connection signal="pressed" from="VBox/Nav/Map" to="." method="_on_Map_pressed"]
+[connection signal="pressed" from="VBox/Nav/Notes" to="." method="_on_Notes_pressed"]
+[connection signal="pressed" from="VBox/Nav/Character" to="." method="_on_Character_pressed"]
