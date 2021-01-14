@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player_Weapon-Select-Windows.png-7a1587d6db4a0d82aa013a591f8d8aee.stex"
+path="res://.import/Player_Weapon-Select-Windows.png-ef6abcda4421717495890e45cdca1c66.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/assets/TableTopPlus/drive-download-20210114T032958Z-001/Player_Weapon-Select-Windows.png"
-dest_files=[ "res://.import/Player_Weapon-Select-Windows.png-7a1587d6db4a0d82aa013a591f8d8aee.stex" ]
+source_file="res://Imgs/mockups/drive-download-20210114T032958Z-001/Player_Weapon-Select-Windows.png"
+dest_files=[ "res://.import/Player_Weapon-Select-Windows.png-ef6abcda4421717495890e45cdca1c66.stex" ]
 
 [params]
 
