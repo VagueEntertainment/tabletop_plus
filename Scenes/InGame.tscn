@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/InGame.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/InGame/PopUps/PopUps.gd" type="Script" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Scenes/InGame/Notes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://default_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Scenes/InGame/Map.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Imgs/mockups/drive-download-20210114T032958Z-001/Character.Spells-Examples.png" type="Texture" id=7]
+[ext_resource path="res://Imgs/mockups/drive-download-20210114T032958Z-001/Player_Weapon-Select-Windows.png" type="Texture" id=8]
+[ext_resource path="res://Imgs/mockups/drive-download-20210114T032958Z-001/Character.Spells.png" type="Texture" id=9]
+[ext_resource path="res://Imgs/mockups/drive-download-20210114T032958Z-001/Weapons.Results-Examples.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/InGame/PopUps/PopUpList.tscn" type="PackedScene" id=11]
 
 [node name="InGame" type="Control"]
 anchor_right = 1.0
@@ -41,7 +46,6 @@ rect_min_size = Vector2( 0, 964 )
 rect_clip_content = true
 
 [node name="Character" parent="VBox/Container" instance=ExtResource( 3 )]
-visible = false
 
 [node name="Notes" parent="VBox/Container" instance=ExtResource( 4 )]
 visible = false
@@ -49,13 +53,73 @@ visible = false
 [node name="Map" parent="VBox/Container" instance=ExtResource( 6 )]
 
 [node name="PopUps" type="Control" parent="VBox/Container"]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -908.0
+margin_right = 300.0
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Spells" parent="VBox/Container/PopUps" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -427.0
+margin_right = 300.0
+margin_bottom = 427.0
+
+[node name="Weapons" parent="VBox/Container/PopUps" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -427.0
+margin_right = 300.0
+margin_bottom = 427.0
+
+[node name="Items" parent="VBox/Container/PopUps" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -427.0
+margin_right = 300.0
+margin_bottom = 427.0
+
+[node name="Attack" parent="VBox/Container/PopUps" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -427.0
+margin_right = 300.0
+margin_bottom = 427.0
+
+[node name="AttackLog" parent="VBox/Container/PopUps" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -427.0
+margin_right = 300.0
+margin_bottom = 427.0
 
 [node name="Nav" type="HBoxContainer" parent="VBox"]
 margin_top = 972.0
@@ -66,24 +130,43 @@ grow_vertical = 2
 rect_min_size = Vector2( 0, 48 )
 alignment = 1
 
-[node name="Map" type="Button" parent="VBox/Nav"]
-margin_left = 173.0
-margin_right = 226.0
+[node name="Character" type="Button" parent="VBox/Nav"]
+margin_left = 202.0
+margin_right = 264.0
 margin_bottom = 48.0
+toggle_mode = true
+text = "CHAR"
+
+[node name="Map" type="Button" parent="VBox/Nav"]
+margin_left = 268.0
+margin_right = 321.0
+margin_bottom = 48.0
+toggle_mode = true
 text = "MAP"
 
 [node name="Notes" type="Button" parent="VBox/Nav"]
-margin_left = 230.0
-margin_right = 302.0
+margin_left = 325.0
+margin_right = 397.0
 margin_bottom = 48.0
+toggle_mode = true
 text = "NOTES"
 
-[node name="Character" type="Button" parent="VBox/Nav"]
-margin_left = 306.0
-margin_right = 427.0
-margin_bottom = 48.0
-text = "CHARACTER"
+[node name="CharacterSpells-Examples" type="Sprite" parent="."]
+position = Vector2( -662.943, 345.087 )
+texture = ExtResource( 7 )
+
+[node name="CharacterSpells" type="Sprite" parent="CharacterSpells-Examples"]
+position = Vector2( -466.092, -257.257 )
+texture = ExtResource( 9 )
+
+[node name="Player_Weapon-Select-Windows" type="Sprite" parent="CharacterSpells-Examples"]
+position = Vector2( -645.893, 306.003 )
+texture = ExtResource( 8 )
+
+[node name="WeaponsResults-Examples" type="Sprite" parent="CharacterSpells-Examples/Player_Weapon-Select-Windows"]
+position = Vector2( 1044.04, 243.673 )
+texture = ExtResource( 10 )
 [connection signal="visibility_changed" from="." to="." method="_on_InGame_visibility_changed"]
+[connection signal="pressed" from="VBox/Nav/Character" to="." method="_on_Character_pressed"]
 [connection signal="pressed" from="VBox/Nav/Map" to="." method="_on_Map_pressed"]
 [connection signal="pressed" from="VBox/Nav/Notes" to="." method="_on_Notes_pressed"]
-[connection signal="pressed" from="VBox/Nav/Character" to="." method="_on_Character_pressed"]
