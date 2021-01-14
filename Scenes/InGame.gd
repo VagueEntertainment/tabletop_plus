@@ -17,6 +17,10 @@ func _ready():
 	
 	$VBox/Container.rect_min_size.y = vbox.y - Nav.y - 60
 	
+	
+	for child in $VBox/Container.get_children():
+		if child.has_signal("popup"):
+			child.connect("popup",self,"_on_popup")
 	pass # Replace with function body.
 
 
@@ -31,6 +35,9 @@ func hide_all(except = ""):
 	for child in $VBox/Container.get_children():
 		if child.state != "Hide" and child.name != except:
 			child.get_node("AnimationPlayer").play("Hide")
+	for child in $VBox/Nav.get_children():
+		if child.pressed == true and child.name !=except:
+			child.pressed = false
 
 func _on_Character_pressed():
 	hide_all("Character")
@@ -57,3 +64,11 @@ func _on_InGame_visibility_changed():
 	if visible:
 		_on_Character_pressed()
 		pass # Replace with function body.
+
+func _on_popup(opts):
+	print(opts[1][0])
+	for child in $VBox/Container/PopUps.get_children():
+		if child.name == opts[1][0]:
+			print("found ",opts[1][0])
+			child.get_node("AnimationPlayer").play("Show")
+			break
