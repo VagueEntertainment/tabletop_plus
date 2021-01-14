@@ -14,7 +14,6 @@
 [node name="Character" type="ScrollContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = false
 theme = ExtResource( 5 )
 custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
