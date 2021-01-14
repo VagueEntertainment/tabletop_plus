@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weapons.Results-Examples.png-9d0d3d041a6d9dec9d8c9a9ed447ceee.stex"
+path="res://.import/Weapons.Results-Examples.png-aac501af5c98d309f1930512bbe41a43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/mockups/drive-download-20210114T032958Z-001/Weapons.Results-Examples.png"
-dest_files=[ "res://.import/Weapons.Results-Examples.png-9d0d3d041a6d9dec9d8c9a9ed447ceee.stex" ]
+source_file="res://Imgs/mockups/Weapons.Results-Examples.png"
+dest_files=[ "res://.import/Weapons.Results-Examples.png-aac501af5c98d309f1930512bbe41a43.stex" ]
 
 [params]
 
