@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character.Spells-Examples.png-9b8e26be65f2360c420d442bb1e5b72e.stex"
+path="res://.import/Character.Spells-Examples.png-8298c842765aa4ef29087b6f858565ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/mockups/drive-download-20210114T032958Z-001/Character.Spells-Examples.png"
-dest_files=[ "res://.import/Character.Spells-Examples.png-9b8e26be65f2360c420d442bb1e5b72e.stex" ]
+source_file="res://Imgs/mockups/Character.Spells-Examples.png"
+dest_files=[ "res://.import/Character.Spells-Examples.png-8298c842765aa4ef29087b6f858565ac.stex" ]
 
 [params]
 

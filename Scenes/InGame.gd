@@ -70,5 +70,8 @@ func _on_popup(opts):
 	for child in $VBox/Container/PopUps.get_children():
 		if child.name == opts[1][0]:
 			print("found ",opts[1][0])
-			child.get_node("AnimationPlayer").play("Show")
+			if child.has_node("AnimationPlayer"):
+				child.get_node("AnimationPlayer").play("Show")
+			else:
+				child.show()
 			break
