@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character.Spells.png-003bf26419ccf663e1578b82ae9569b2.stex"
+path="res://.import/Script Icon.png-799da7a4b0a118b53b18ddbe25b0a864.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/mockups/drive-download-20210114T032958Z-001/Character.Spells.png"
-dest_files=[ "res://.import/Character.Spells.png-003bf26419ccf663e1578b82ae9569b2.stex" ]
+source_file="res://Imgs/assets/TableTopPlus/Script Icon.png"
+dest_files=[ "res://.import/Script Icon.png-799da7a4b0a118b53b18ddbe25b0a864.stex" ]
 
 [params]
 
