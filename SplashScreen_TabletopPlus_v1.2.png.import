@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hammer.png-3ad1c6eccb4442176a3dccf8be268e12.stex"
+path="res://.import/SplashScreen_TabletopPlus_v1.2.png-46588a199a054a64310045e997ee612d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/assets/TableTopPlus/hammer.png"
-dest_files=[ "res://.import/hammer.png-3ad1c6eccb4442176a3dccf8be268e12.stex" ]
+source_file="res://SplashScreen_TabletopPlus_v1.2.png"
+dest_files=[ "res://.import/SplashScreen_TabletopPlus_v1.2.png-46588a199a054a64310045e997ee612d.stex" ]
 
 [params]
 
