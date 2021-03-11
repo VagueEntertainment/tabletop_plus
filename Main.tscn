@@ -24,6 +24,7 @@ __meta__ = {
 }
 
 [node name="watermark" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch_mode = 6
