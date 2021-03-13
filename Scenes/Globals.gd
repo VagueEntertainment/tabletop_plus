@@ -1,18 +1,20 @@
 extends Node
 
+# TODO: Add code to show splash screen for slow-loading windows.
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 signal nav_update(data)
 signal game_select(gamename)
 signal game_start(gamename)
+signal loading(action)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	loading()
 
+func loading():
+	emit_signal("loading", "start")
+	$Timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Timer_timeout():
+	emit_signal("loading", "finish")
+	$Timer.stop()
