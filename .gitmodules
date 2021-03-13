@@ -1,0 +1,6 @@
+[submodule "Themes"]
+	path = Themes
+	url = git@github.com:VagueEntertainment/tt_plus-themes.git
+[submodule "Shared"]
+	path = Shared
+	url = git@github.com:VagueEntertainment/tt_plus-shared.git

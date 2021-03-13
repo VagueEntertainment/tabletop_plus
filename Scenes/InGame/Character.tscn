@@ -9,7 +9,7 @@
 [ext_resource path="res://default_theme.tres" type="Theme" id=7]
 [ext_resource path="res://Imgs/assets/TableTopPlus/Switch Character Button.png" type="Texture" id=8]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "Hide"
 length = 0.26
 step = 0.05
@@ -246,6 +246,6 @@ margin_bottom = 400.0
 icon = "res://Imgs/assets/scrollsandbooksicons/ScrollsAndBooks_t/ScrollsAndBooks_33_t.PNG"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hide = SubResource( 3 )
+anims/Hide = SubResource( 1 )
 anims/Show = SubResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
