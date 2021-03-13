@@ -105,4 +105,5 @@ __meta__ = {
 }
 
 [node name="SplashScreen" parent="." instance=ExtResource( 6 )]
+visible = false
 [connection signal="gui_input" from="TopBar/NavButton1" to="." method="_on_NavButton1_gui_input"]
