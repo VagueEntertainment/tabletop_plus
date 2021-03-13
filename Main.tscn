@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/default_light_theme/default_light.tres" type="Theme" id=1]
 [ext_resource path="res://Imgs/Theme/scalable/actions/go-previous-symbolic.svg" type="Texture" id=2]
 [ext_resource path="res://Imgs/Theme/scalable/status/avatar-default-symbolic.svg" type="Texture" id=3]
 [ext_resource path="res://Fonts/Bold32.tres" type="DynamicFont" id=4]
@@ -105,5 +105,4 @@ __meta__ = {
 }
 
 [node name="SplashScreen" parent="." instance=ExtResource( 6 )]
-visible = false
 [connection signal="gui_input" from="TopBar/NavButton1" to="." method="_on_NavButton1_gui_input"]
